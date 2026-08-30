@@ -32,10 +32,42 @@
   border-color: var(--border-default);
 }
 .dls-btn--secondary:hover { background: var(--surface-card-hover); }
+/* success (confirmation, e.g. copied) — overrides variant colors */
+.dls-btn--success {
+  background: var(--surface-subtle);
+  color: var(--text-accent);
+  border-color: transparent;
+}
+.dls-btn--success:hover { background: var(--surface-subtle); opacity: 1; }
+/* disabled */
+.dls-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
 .dls-btn__icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: var(--size-icon-s);
   height: var(--size-icon-s);
+}
+
+/* ── Alert ───────────────────────────────────────────── */
+.dls-alert {
+  padding: 12px var(--control-gap-m);
+  border-radius: var(--radius-lg);
+  border: 1px solid transparent;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.dls-alert--danger {
+  background: var(--surface-danger);
+  border-color: var(--border-danger);
+  color: var(--text-danger);
+}
+.dls-alert--success {
+  background: var(--surface-subtle);
+  color: var(--text-accent);
 }
