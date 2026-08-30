@@ -1,0 +1,116 @@
+/**
+ * DLS Core — Design tokens
+ * Généré depuis la bibliothèque Figma "DLS Core" (source de vérité).
+ * NE PAS éditer à la main : régénéré depuis Figma.
+ *
+ * 3 tiers : Primitives (valeurs brutes) → Semantic (rôles) → Component.
+ * Mode unique "Dark" pour l'instant (l'app est dark-only).
+ */
+:root {
+  /* ── Primitives · Couleurs ───────────────────────────── */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-neutral-100: #f4f4f5;
+  --color-neutral-200: #e4e4e7;
+  --color-neutral-300: #d4d4d8;
+  --color-neutral-400: #a1a1aa;
+  --color-neutral-500: #71717a;
+  --color-neutral-600: #52525b;
+  --color-neutral-700: #3f3f46;
+  --color-neutral-800: #27272a;
+  --color-neutral-900: #18181b;
+  --color-neutral-1000: #0c0c10;
+  --color-accent-100: #d1fae5;
+  --color-accent-200: #a7f3d0;
+  --color-accent-300: #6ee7b7;
+  --color-accent-400: #34d399;
+  --color-accent-500: #10b981;
+  --color-accent-600: #059669;
+  --color-accent-700: #047857;
+  --color-accent-800: #065f46;
+  --color-accent-900: #064e3b;
+  --color-accent-1000: #022c22;
+  --color-red-300: #fca5a5;
+  --color-red-500: #ef4444;
+  --color-red-a10: #ef44441a;
+  --color-red-a25: #ef444440;
+  --color-white-a10: #ffffff1a;
+  --color-white-a20: #ffffff33;
+  --color-white-a70: #ffffffb2;
+
+  /* ── Primitives · Dimensions (px) ────────────────────── */
+  --number-2: 2px;
+  --number-4: 4px;
+  --number-6: 6px;
+  --number-8: 8px;
+  --number-10: 10px;
+  --number-12: 12px;
+  --number-16: 16px;
+  --number-20: 20px;
+  --number-24: 24px;
+  --number-32: 32px;
+  --number-36: 36px;
+  --number-40: 40px;
+  --number-44: 44px;
+  --number-48: 48px;
+  --number-56: 56px;
+  --number-9999: 9999px;
+
+  /* ── Semantic · Surfaces ─────────────────────────────── */
+  --surface-page: var(--color-neutral-1000);
+  --surface-card: var(--color-black);
+  --surface-card-hover: var(--color-neutral-900);
+  --surface-inverse: var(--color-white);
+  --surface-subtle: var(--color-white-a10);
+  --surface-danger: var(--color-red-a10);
+
+  /* ── Semantic · Texte ────────────────────────────────── */
+  --text-primary: var(--color-neutral-100);
+  --text-secondary: var(--color-neutral-300);
+  --text-tertiary: var(--color-neutral-400);
+  --text-inverse: var(--color-neutral-900);
+  --text-accent: var(--color-accent-400);
+  --text-danger: var(--color-red-300);
+
+  /* ── Semantic · Bordures ─────────────────────────────── */
+  --border-default: var(--color-white-a20);
+  --border-selected: var(--color-white-a70);
+  --border-danger: var(--color-red-a25);
+
+  /* ── Semantic · Rayons ───────────────────────────────── */
+  --radius-sm: var(--number-8);
+  --radius-md: var(--number-12);
+  --radius-lg: var(--number-16);
+  --radius-full: var(--number-9999);
+
+  /* ── Semantic · Tailles ──────────────────────────────── */
+  --size-control-desktop: var(--number-44);
+  --size-control-mobile: var(--number-48);
+  --size-icon-s: var(--number-16);
+  --size-icon-m: var(--number-24);
+  --size-icon-l: var(--number-32);
+  --size-media-desktop: var(--number-48);
+  --size-media-mobile: var(--number-56);
+
+  /* ── Component · Button ──────────────────────────────── */
+  --button-bg-primary: var(--surface-inverse);
+  --button-bg-secondary: var(--surface-card);
+  --button-text-primary: var(--text-inverse);
+  --button-text-secondary: var(--text-primary);
+  --button-radius: var(--radius-md);
+
+  /* ── Component · Control ─────────────────────────────── */
+  --control-gap-s: var(--number-8);
+  --control-gap-m: var(--number-16);
+  --control-height-desktop: var(--size-control-desktop);
+  --control-height-mobile: var(--size-control-mobile);
+
+  /* ── Component · Toggle ──────────────────────────────── */
+  --toggle-padding: var(--number-2);
+  --toggle-thumb: var(--color-white);
+  --toggle-thumb-size: var(--number-16);
+  --toggle-track-width: var(--number-36);
+  --toggle-track-height: var(--number-20);
+  --toggle-track-on: var(--color-accent-500);
+  --toggle-track-off: var(--color-white-a70);
+}

@@ -1,0 +1,21 @@
+{
+  "name": "dls-core",
+  "version": "0.1.0",
+  "description": "DLS Core — Design Language System : tokens (et composants génériques, à venir), réutilisable sur tous les projets.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vincenthouin/dls-core.git"
+  },
+  "files": [
+    "tokens"
+  ],
+  "exports": {
+    "./tokens.css": "./tokens/tokens.css",
+    "./tailwind-preset": "./tokens/tailwind-preset.cjs",
+    "./tokens.json": "./tokens/tokens.json"
+  },
+  "sideEffects": [
+    "*.css"
+  ]
+}
