@@ -1,8 +1,20 @@
 # DLS Core
 
 Design Language System — **cœur réutilisable** pour l'ensemble des apps.
-Contient les **tokens** (couleurs, dimensions, rôles) et, à terme, les
-**composants génériques** (Button, Input, Toggle, Icons…).
+Contient les **tokens** (couleurs, dimensions, rôles) et les **composants
+génériques React** (Button ✓ ; Input, Toggle, Icon button, Icons à venir).
+
+Les composants sont **portables** : stylés via les CSS variables des tokens,
+sans dépendance Tailwind. Ils fonctionnent dans n'importe quel projet React
+tant que `tokens.css` + `components.css` sont importés.
+
+```tsx
+import "dls-core/tokens.css";
+import "dls-core/components.css";
+import { Button } from "dls-core";
+
+<Button variant="primary" platform="desktop">Copy all</Button>
+```
 
 Source de vérité : la bibliothèque Figma **DLS Core**. Les fichiers de `tokens/`
 sont **générés depuis Figma** — ne pas les éditer à la main.

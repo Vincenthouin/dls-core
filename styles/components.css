@@ -1,0 +1,41 @@
+/**
+ * DLS Core — styles des composants (portables : basés sur les CSS variables
+ * des tokens, sans dépendance Tailwind). Importer une fois avec tokens.css :
+ *   import "dls-core/tokens.css";
+ *   import "dls-core/components.css";
+ */
+
+/* ── Button ──────────────────────────────────────────── */
+.dls-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--control-gap-s);
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: var(--button-radius);
+  padding-inline: var(--control-gap-m);
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  transition: opacity 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+.dls-btn--desktop { height: var(--control-height-desktop); }
+.dls-btn--mobile { height: var(--control-height-mobile); }
+.dls-btn--primary { background: var(--button-bg-primary); color: var(--button-text-primary); }
+.dls-btn--primary:hover { opacity: 0.9; }
+.dls-btn--secondary {
+  background: var(--button-bg-secondary);
+  color: var(--button-text-secondary);
+  border-color: var(--border-default);
+}
+.dls-btn--secondary:hover { background: var(--surface-card-hover); }
+.dls-btn__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-icon-s);
+  height: var(--size-icon-s);
+}
