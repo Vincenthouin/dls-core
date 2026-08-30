@@ -2,7 +2,7 @@
 
 Design Language System — **cœur réutilisable** pour l'ensemble des apps.
 Contient les **tokens** (couleurs, dimensions, rôles) et les **composants
-génériques React** (Button ✓ ; Input, Toggle, Icon button, Icons à venir).
+génériques React** (Button, Input, Toggle, Icon button, Alert, Icons ✓).
 
 Les composants sont **portables** : stylés via les CSS variables des tokens,
 sans dépendance Tailwind. Ils fonctionnent dans n'importe quel projet React

@@ -71,3 +71,90 @@
   background: var(--surface-subtle);
   color: var(--text-accent);
 }
+
+/* ── Input ───────────────────────────────────────────── */
+.dls-input {
+  width: 100%;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  background: var(--surface-card);
+  padding: 10px var(--control-gap-m) 10px var(--number-12);
+  color: var(--text-primary);
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+  line-height: 1.2;
+  outline: none;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+.dls-input::placeholder { color: var(--text-tertiary); }
+.dls-input:focus {
+  border-color: var(--border-selected);
+  background: var(--surface-card-hover);
+}
+/* mobile: 16px to avoid the iOS zoom-on-focus */
+.dls-input--mobile { font-size: 16px; }
+.dls-input--invalid {
+  border-color: var(--border-danger);
+  background: var(--surface-danger);
+}
+
+/* ── Toggle ──────────────────────────────────────────── */
+.dls-toggle {
+  position: relative;
+  flex-shrink: 0;
+  width: var(--toggle-track-width);
+  height: var(--toggle-track-height);
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--toggle-track-off);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+.dls-toggle--on { background: var(--toggle-track-on); }
+.dls-toggle:disabled { opacity: 0.4; cursor: not-allowed; }
+.dls-toggle__thumb {
+  position: absolute;
+  top: var(--toggle-padding);
+  left: var(--toggle-padding);
+  width: var(--toggle-thumb-size);
+  height: var(--toggle-thumb-size);
+  border-radius: var(--radius-full);
+  background: var(--toggle-thumb);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  transition: transform 0.15s ease;
+}
+.dls-toggle--on .dls-toggle__thumb {
+  /* track − thumb − 2×padding */
+  transform: translateX(
+    calc(var(--toggle-track-width) - var(--toggle-thumb-size) - 2 * var(--toggle-padding))
+  );
+}
+
+/* ── Icon button ─────────────────────────────────────── */
+.dls-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.dls-icon-btn--m { width: var(--number-40); height: var(--number-40); }
+.dls-icon-btn--s { width: var(--number-32); height: var(--number-32); }
+.dls-icon-btn--square.dls-icon-btn--m { border-radius: var(--radius-md); }
+.dls-icon-btn--square.dls-icon-btn--s { border-radius: var(--radius-sm); }
+.dls-icon-btn--round { border-radius: var(--radius-full); }
+.dls-icon-btn:hover {
+  background: var(--surface-subtle);
+  color: var(--text-primary);
+}
+.dls-icon-btn--active {
+  background: var(--surface-subtle);
+  color: var(--text-primary);
+}
+.dls-icon-btn:disabled { opacity: 0.4; cursor: not-allowed; }

@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>DLS Core — Component gallery</title>
+<!-- Reflète TOUJOURS le CSS livré : ne pas inliner, garder ces liens relatifs.
+     Régénérer tokens.css depuis Figma met la galerie à jour automatiquement. -->
+<link rel="stylesheet" href="./tokens/tokens.css" />
+<link rel="stylesheet" href="./styles/components.css" />
+<style>
+  :root { color-scheme: dark; }
+  body {
+    margin: 0;
+    background: var(--surface-page);
+    color: var(--text-primary);
+    font-family: Inter, system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+  header { border-bottom: 1px solid var(--border-default); padding-bottom: 20px; margin-bottom: 8px; }
+  header h1 { font-size: 22px; font-weight: 600; margin: 0 0 6px; }
+  header p { margin: 0; color: var(--text-tertiary); font-size: 13px; line-height: 1.5; }
+  header .ver {
+    display: inline-block; margin-top: 10px; padding: 2px 8px; border-radius: var(--radius-full);
+    background: var(--surface-subtle); color: var(--text-accent); font-size: 11px; font-weight: 600;
+  }
+  section { padding: 28px 0; border-bottom: 1px solid var(--border-default); }
+  section > h2 { font-size: 15px; font-weight: 600; margin: 0 0 4px; }
+  section > .desc { margin: 0 0 20px; color: var(--text-tertiary); font-size: 12px; line-height: 1.5; }
+  section > .desc code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px;
+    background: var(--surface-subtle); padding: 1px 5px; border-radius: 5px; color: var(--text-secondary);
+  }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 16px; }
+  .cell {
+    display: flex; flex-direction: column; gap: 10px;
+    padding: 16px; border: 1px solid var(--border-default); border-radius: var(--radius-lg);
+    background: var(--surface-card);
+  }
+  .cell .render { display: flex; align-items: center; gap: 12px; min-height: 44px; flex-wrap: wrap; }
+  .cell .tag {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10.5px; line-height: 1.4;
+    color: var(--text-tertiary);
+  }
+  .cell .tag b { color: var(--text-secondary); font-weight: 600; }
+  .btnbox { width: 150px; }
+  .iconsheet { display: flex; flex-wrap: wrap; gap: 20px; }
+  .iconsheet figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 8px; width: 64px; }
+  .iconsheet figcaption { font-family: ui-monospace, Menlo, monospace; font-size: 10px; color: var(--text-tertiary); }
+  .hint { color: var(--text-tertiary); font-size: 11px; font-style: italic; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>DLS Core — Component gallery</h1>
+    <p>
+      Référence visuelle vivante des composants génériques du design system.<br />
+      Chaque composant est rendu via ses classes <code>.dls-*</code> et les <em>vrais</em> tokens.
+      Survole les contrôles pour voir les états <em>hover / focus / active</em> en direct.
+    </p>
+    <span class="ver" id="ver">dls-core</span>
+  </header>
+
+  <!-- ── Button ─────────────────────────────────────────── -->
+  <section>
+    <h2>Button</h2>
+    <p class="desc">
+      Variants Figma : <code>Style</code> (primary/secondary) × <code>Platform</code> (desktop/mobile)
+      × <code>State</code> (default/success/disabled) + icône optionnelle.
+    </p>
+    <div class="grid">
+      <div class="cell"><div class="render btnbox"><button class="dls-btn dls-btn--primary dls-btn--desktop">Copy all</button></div><span class="tag"><b>primary</b> · desktop · default</span></div>
+      <div class="cell"><div class="render btnbox"><button class="dls-btn dls-btn--secondary dls-btn--desktop">Continue</button></div><span class="tag"><b>secondary</b> · desktop · default</span></div>
+      <div class="cell"><div class="render btnbox"><button class="dls-btn dls-btn--success dls-btn--desktop">Message copied!</button></div><span class="tag"><b>success</b> · confirmation</span></div>
+      <div class="cell"><div class="render btnbox"><button class="dls-btn dls-btn--primary dls-btn--desktop" disabled>Copy all</button></div><span class="tag"><b>disabled</b></span></div>
+      <div class="cell"><div class="render btnbox"><button class="dls-btn dls-btn--primary dls-btn--mobile">Copy all</button></div><span class="tag">primary · <b>mobile</b> (48px)</span></div>
+      <div class="cell"><div class="render btnbox"><button class="dls-btn dls-btn--primary dls-btn--desktop"><span class="dls-btn__icon" data-icon="share"></span>Share</button></div><span class="tag">primary · <b>show icon</b></span></div>
+    </div>
+  </section>
+
+  <!-- ── Input ──────────────────────────────────────────── -->
+  <section>
+    <h2>Input</h2>
+    <p class="desc">
+      Variants : <code>Platform</code> (desktop 13px / mobile 16px anti-zoom iOS) · <code>State</code>
+      (default / invalid / disabled). <span class="hint">Clique dans un champ pour voir le focus.</span>
+    </p>
+    <div class="grid">
+      <div class="cell"><div class="render"><input class="dls-input dls-input--desktop" placeholder="Paste your Spotify link" /></div><span class="tag"><b>desktop</b> · placeholder</span></div>
+      <div class="cell"><div class="render"><input class="dls-input dls-input--desktop" value="https://open.spotify.com/track/xyz" /></div><span class="tag">desktop · <b>filled</b></span></div>
+      <div class="cell"><div class="render"><input class="dls-input dls-input--mobile" placeholder="Paste your link" /></div><span class="tag"><b>mobile</b> · 16px</span></div>
+      <div class="cell"><div class="render"><input class="dls-input dls-input--invalid" value="not a link" /></div><span class="tag"><b>invalid</b></span></div>
+      <div class="cell"><div class="render"><input class="dls-input dls-input--desktop" value="locked" disabled /></div><span class="tag"><b>disabled</b></span></div>
+    </div>
+  </section>
+
+  <!-- ── Toggle ─────────────────────────────────────────── -->
+  <section>
+    <h2>Toggle</h2>
+    <p class="desc">Switch on/off. Géométrie pilotée par les tokens <code>--toggle-*</code>.</p>
+    <div class="grid">
+      <div class="cell"><div class="render"><button class="dls-toggle" role="switch" aria-checked="false" aria-label="off"><span class="dls-toggle__thumb"></span></button></div><span class="tag"><b>off</b></span></div>
+      <div class="cell"><div class="render"><button class="dls-toggle dls-toggle--on" role="switch" aria-checked="true" aria-label="on"><span class="dls-toggle__thumb"></span></button></div><span class="tag"><b>on</b></span></div>
+      <div class="cell"><div class="render"><button class="dls-toggle" role="switch" aria-checked="false" aria-label="off disabled" disabled><span class="dls-toggle__thumb"></span></button></div><span class="tag">off · <b>disabled</b></span></div>
+      <div class="cell"><div class="render"><button class="dls-toggle dls-toggle--on" role="switch" aria-checked="true" aria-label="on disabled" disabled><span class="dls-toggle__thumb"></span></button></div><span class="tag">on · <b>disabled</b></span></div>
+    </div>
+  </section>
+
+  <!-- ── Icon button ────────────────────────────────────── -->
+  <section>
+    <h2>Icon button</h2>
+    <p class="desc">
+      Variants : <code>Shape</code> (square/round) × <code>Size</code> (s 32px / m 40px) ×
+      <code>State</code> (default/active). <span class="hint">Survole pour le hover.</span>
+    </p>
+    <div class="grid">
+      <div class="cell"><div class="render"><button class="dls-icon-btn dls-icon-btn--square dls-icon-btn--m" data-icon="settings" aria-label="Settings"></button></div><span class="tag"><b>square · m</b> · default</span></div>
+      <div class="cell"><div class="render"><button class="dls-icon-btn dls-icon-btn--square dls-icon-btn--m dls-icon-btn--active" data-icon="close" aria-label="Close"></button></div><span class="tag">square · m · <b>active</b></span></div>
+      <div class="cell"><div class="render"><button class="dls-icon-btn dls-icon-btn--square dls-icon-btn--s" data-icon="copy" aria-label="Copy"></button></div><span class="tag"><b>square · s</b></span></div>
+      <div class="cell"><div class="render"><button class="dls-icon-btn dls-icon-btn--round dls-icon-btn--s" data-icon="close" aria-label="Clear"></button></div><span class="tag"><b>round · s</b></span></div>
+      <div class="cell"><div class="render"><button class="dls-icon-btn dls-icon-btn--square dls-icon-btn--m" data-icon="settings" aria-label="Settings disabled" disabled></button></div><span class="tag">square · m · <b>disabled</b></span></div>
+    </div>
+  </section>
+
+  <!-- ── Alert ──────────────────────────────────────────── -->
+  <section>
+    <h2>Alert</h2>
+    <p class="desc">Message inline. Variant Figma : <code>Tone</code> (danger/success).</p>
+    <div class="grid">
+      <div class="cell"><div class="render"><div class="dls-alert dls-alert--danger">Couldn't resolve this link. Check it and try again.</div></div><span class="tag"><b>danger</b></span></div>
+      <div class="cell"><div class="render"><div class="dls-alert dls-alert--success">Link copied to clipboard.</div></div><span class="tag"><b>success</b></span></div>
+    </div>
+  </section>
+
+  <!-- ── Icons ──────────────────────────────────────────── -->
+  <section style="border-bottom:none">
+    <h2>Icons</h2>
+    <p class="desc">Set générique (stroke, <code>currentColor</code>, prop <code>size</code>). Les logos de plateforme vivent dans l'app.</p>
+    <div class="iconsheet" id="iconsheet"></div>
+  </section>
+</div>
+
+<script>
+  // Tracés SVG des icônes Core (miroir de src/icons.tsx). Injectés ici pour la
+  // galerie ; la source de vérité reste le composant React.
+  var ICONS = {
+    close:    ['2.5', '<path d="M18 6 6 18M6 6l12 12"/>'],
+    check:    ['2.5', '<path d="M20 6 9 17l-5-5"/>'],
+    copy:     ['2', '<rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>'],
+    link:     ['2', '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>'],
+    share:    ['2', '<path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/>'],
+    settings: ['2', '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.01a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h.01a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.01a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>']
+  };
+  function svg(name, size) {
+    var d = ICONS[name]; if (!d) return '';
+    return '<svg viewBox="0 0 24 24" width="' + size + '" height="' + size + '" fill="none" stroke="currentColor" ' +
+      'stroke-width="' + d[0] + '" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + d[1] + '</svg>';
+  }
+  // remplit les data-icon (boutons)
+  document.querySelectorAll('[data-icon]').forEach(function (el) {
+    var size = el.classList.contains('dls-icon-btn--s') || el.classList.contains('dls-btn__icon') ? 16 : 20;
+    el.insertAdjacentHTML('beforeend', svg(el.getAttribute('data-icon'), size));
+  });
+  // planche d'icônes
+  var sheet = document.getElementById('iconsheet');
+  Object.keys(ICONS).forEach(function (name) {
+    var label = name.charAt(0).toUpperCase() + name.slice(1) + 'Icon';
+    sheet.insertAdjacentHTML('beforeend',
+      '<figure><span style="color:var(--text-primary)">' + svg(name, 24) + '</span><figcaption>' + label + '</figcaption></figure>');
+  });
+  // version depuis package.json (si servi via http) — sinon libellé statique
+  fetch('./package.json').then(function (r) { return r.json(); }).then(function (p) {
+    document.getElementById('ver').textContent = 'dls-core v' + p.version;
+  }).catch(function () { document.getElementById('ver').textContent = 'dls-core'; });
+</script>
+</body>
+</html>
