@@ -2,7 +2,10 @@ name: Deploy gallery (Pages)
 
 on:
   push:
-    branches: [main]
+    # `redesign` inclus pendant la phase de refonte : la galerie live reflète le
+    # travail en cours (l'URL Pages est unique → dernier push gagnant). À retirer
+    # une fois `redesign` mergée dans `main`.
+    branches: [main, redesign]
   workflow_dispatch:
 
 permissions:
