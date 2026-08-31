@@ -2,7 +2,10 @@
 
 Design Language System — **cœur réutilisable** pour l'ensemble des apps.
 Contient les **tokens** (couleurs, dimensions, rôles) et les **composants
-génériques React** (Button, Input, Toggle, Icon button, Alert, Icons ✓).
+génériques React** (Button, Input, Toggle, Icon button, Badge, Chip, Alert, Loader, Icons ✓).
+
+📺 **Galerie live (tous les composants × états)** : <https://vincenthouin.github.io/dls-core/>
+_(auto-déployée à chaque push sur `main` ; une régression visuelle échoue la CI — cf. `visual/`)._
 
 Les composants sont **portables** : stylés via les CSS variables des tokens,
 sans dépendance Tailwind. Ils fonctionnent dans n'importe quel projet React
