@@ -16,16 +16,30 @@ import { Button } from "dls-core";
 <Button variant="primary" platform="desktop">Copy all</Button>
 ```
 
-Source de vérité : la bibliothèque Figma **DLS Core**. Les fichiers de `tokens/`
-sont **générés depuis Figma** — ne pas les éditer à la main.
+## Pipeline de tokens (Figma → code, automatisé)
+
+Source de vérité : **`tokens/design-tokens.json`** (format [W3C Design Tokens](https://design-tokens.github.io/community-group/format/)).
+Il est édité **dans Figma via le Token Plugin** (bidirectionnel, ouvre une PR) ou à la main.
+`tokens.css` et `tokens.json` en sont **GÉNÉRÉS** — ne pas les éditer :
+
+```bash
+npm run tokens:build   # design-tokens.json → tokens.css + tokens.json (aussi lancé par prepare/build)
+```
+
+Boucle : *éditer dans Figma → le plugin ouvre une PR (design-tokens.json) → CI valide + vérifie l'absence
+de dérive → merge → `npm update dls-core` côté app.* Un token à `<layer>.<cat>.<leaf>` devient la variable
+CSS `--<cat>-<leaf>`. Dark-only pour l'instant (la valeur `dark` des couleurs `{ light, dark }` est émise dans
+`:root` ; un thème clair pourra brancher les valeurs `light` sans changer l'API).
 
 ## Contenu
 
 | Fichier | Rôle |
 |---|---|
-| `tokens/tokens.css` | CSS custom properties (Primitives → Semantic → Component), mode dark |
+| `tokens/design-tokens.json` | **Source de vérité** — graphe W3C (Primitives → Semantic → Component), éditable Figma/main |
+| `tokens/tokens.css` | _généré_ — CSS custom properties, mode dark dans `:root` |
+| `tokens/tokens.json` | _généré_ — miroir plat `@alias` pour tooling |
 | `tokens/tailwind-preset.cjs` | Preset Tailwind (`bg-page`, `text-secondary`, `border`, `rounded-md`…) |
-| `tokens/tokens.json` | Graphe brut (valeurs + alias) pour tooling |
+| `scripts/build-tokens.mjs` | Générateur `design-tokens.json` → css/json |
 
 ## Installation
 

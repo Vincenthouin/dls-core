@@ -1,13 +1,11 @@
 /**
- * DLS Core — Design tokens
- * Généré depuis la bibliothèque Figma "DLS Core" (source de vérité).
- * NE PAS éditer à la main : régénéré depuis Figma.
- *
- * 3 tiers : Primitives (valeurs brutes) → Semantic (rôles) → Component.
- * Mode unique "Dark" pour l'instant (l'app est dark-only).
+ * DLS Core — Design tokens (CSS custom properties).
+ * ⚠️ GÉNÉRÉ depuis tokens/design-tokens.json — NE PAS ÉDITER À LA MAIN.
+ *   Régénérer : npm run tokens:build
+ * 3 tiers : Primitives → Semantic → Component. Mode Dark actif dans :root.
  */
 :root {
-  /* ── Primitives · Couleurs ───────────────────────────── */
+  /* ── Primitives · Couleurs ─────────────────────────────── */
   --color-white: #ffffff;
   --color-black: #000000;
   --color-neutral-100: #f4f4f5;
@@ -38,7 +36,7 @@
   --color-white-a20: #ffffff33;
   --color-white-a70: #ffffffb2;
 
-  /* ── Primitives · Dimensions (px) ────────────────────── */
+  /* ── Primitives · Dimensions (px) ──────────────────────── */
   --number-2: 2px;
   --number-4: 4px;
   --number-6: 6px;
@@ -56,7 +54,7 @@
   --number-56: 56px;
   --number-9999: 9999px;
 
-  /* ── Semantic · Surfaces ─────────────────────────────── */
+  /* ── Semantic · Surfaces ───────────────────────────────── */
   --surface-page: var(--color-neutral-1000);
   --surface-card: var(--color-black);
   --surface-card-hover: var(--color-neutral-900);
@@ -64,7 +62,7 @@
   --surface-subtle: var(--color-white-a10);
   --surface-danger: var(--color-red-a10);
 
-  /* ── Semantic · Texte ────────────────────────────────── */
+  /* ── Semantic · Texte ──────────────────────────────────── */
   --text-primary: var(--color-neutral-100);
   --text-secondary: var(--color-neutral-300);
   --text-tertiary: var(--color-neutral-400);
@@ -72,18 +70,18 @@
   --text-accent: var(--color-accent-400);
   --text-danger: var(--color-red-300);
 
-  /* ── Semantic · Bordures ─────────────────────────────── */
+  /* ── Semantic · Bordures ───────────────────────────────── */
   --border-default: var(--color-white-a20);
   --border-selected: var(--color-white-a70);
   --border-danger: var(--color-red-a25);
 
-  /* ── Semantic · Rayons ───────────────────────────────── */
+  /* ── Semantic · Rayons ─────────────────────────────────── */
   --radius-sm: var(--number-8);
   --radius-md: var(--number-12);
   --radius-lg: var(--number-16);
   --radius-full: var(--number-9999);
 
-  /* ── Semantic · Tailles ──────────────────────────────── */
+  /* ── Semantic · Tailles ────────────────────────────────── */
   --size-control-desktop: var(--number-44);
   --size-control-mobile: var(--number-48);
   --size-icon-s: var(--number-16);
@@ -92,20 +90,20 @@
   --size-media-desktop: var(--number-48);
   --size-media-mobile: var(--number-56);
 
-  /* ── Component · Button ──────────────────────────────── */
+  /* ── Component · Button ────────────────────────────────── */
   --button-bg-primary: var(--surface-inverse);
   --button-bg-secondary: var(--surface-card);
   --button-text-primary: var(--text-inverse);
   --button-text-secondary: var(--text-primary);
   --button-radius: var(--radius-md);
 
-  /* ── Component · Control ─────────────────────────────── */
+  /* ── Component · Control ───────────────────────────────── */
   --control-gap-s: var(--number-8);
   --control-gap-m: var(--number-16);
   --control-height-desktop: var(--size-control-desktop);
   --control-height-mobile: var(--size-control-mobile);
 
-  /* ── Component · Toggle ──────────────────────────────── */
+  /* ── Component · Toggle ────────────────────────────────── */
   --toggle-padding: var(--number-2);
   --toggle-thumb: var(--color-white);
   --toggle-thumb-size: var(--number-16);
@@ -114,7 +112,7 @@
   --toggle-track-on: var(--color-accent-500);
   --toggle-track-off: var(--color-white-a70);
 
-  /* ── Component · Loader ──────────────────────────────── */
+  /* ── Component · Loader ────────────────────────────────── */
   --loader-size: var(--number-20);
   --loader-thickness: var(--number-2);
   --loader-track: var(--border-default);

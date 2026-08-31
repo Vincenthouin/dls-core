@@ -1,0 +1,55 @@
+name: Tokens & build
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  tokens:
+    name: Validate tokens + no drift
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Validate design-tokens.json (syntax)
+        run: python3 -m json.tool tokens/design-tokens.json > /dev/null
+
+      - name: Check token layers
+        run: |
+          python3 <<'EOF'
+          import json, sys
+          d = json.load(open('tokens/design-tokens.json'))
+          required = ['primitives', 'semantic', 'component']
+          missing = [k for k in required if k not in d]
+          if missing:
+              print(f"❌ Missing top-level layers: {missing}"); sys.exit(1)
+          def count(o):
+              if isinstance(o, dict):
+                  if '$value' in o: return 1
+                  return sum(count(v) for k, v in o.items() if not k.startswith('$'))
+              return 0
+          print(f"✅ layers OK — {list(d.keys())} — {count(d)} tokens")
+          EOF
+
+      - run: npm ci
+
+      - name: Regenerate tokens
+        run: npm run tokens:build
+
+      - name: Fail on token drift (regenerate & commit tokens)
+        run: |
+          if ! git diff --exit-code tokens/tokens.css tokens/tokens.json; then
+            echo "❌ tokens.css/tokens.json ne correspondent pas à design-tokens.json."
+            echo "   Lance 'npm run tokens:build' et committe les fichiers générés."
+            exit 1
+          fi
+          echo "✅ Pas de dérive : fichiers générés à jour."
+
+      - name: Build package (tsup)
+        run: npm run build
