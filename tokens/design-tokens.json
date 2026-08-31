@@ -1,6 +1,6 @@
 {
   "$schema": "https://design-tokens.github.io/community-group/format/",
-  "$description": "DLS Core design tokens (W3C Design Tokens format). SOURCE OF TRUTH for tokens.css. Édité dans Figma via le Token Plugin (ou à la main) ; tokens.css/tokens.json sont GÉNÉRÉS par scripts/build-tokens.mjs (npm run tokens:build). Ne pas éditer les fichiers générés.",
+  "$description": "DLS Core design tokens (W3C). SOURCE DE VÉRITÉ — pull depuis Figma (scripts/pull-figma-tokens.mjs). tokens.css/tokens.json sont générés (npm run tokens:build).",
   "primitives": {
     "color": {
       "white": {
@@ -15,6 +15,27 @@
         "$value": {
           "light": "",
           "dark": "#000000"
+        }
+      },
+      "white-a10": {
+        "$type": "color",
+        "$value": {
+          "light": "",
+          "dark": "#ffffff1a"
+        }
+      },
+      "white-a20": {
+        "$type": "color",
+        "$value": {
+          "light": "",
+          "dark": "#ffffff33"
+        }
+      },
+      "white-a70": {
+        "$type": "color",
+        "$value": {
+          "light": "",
+          "dark": "#ffffffb2"
         }
       },
       "neutral-100": {
@@ -184,27 +205,6 @@
           "light": "",
           "dark": "#ef444440"
         }
-      },
-      "white-a10": {
-        "$type": "color",
-        "$value": {
-          "light": "",
-          "dark": "#ffffff1a"
-        }
-      },
-      "white-a20": {
-        "$type": "color",
-        "$value": {
-          "light": "",
-          "dark": "#ffffff33"
-        }
-      },
-      "white-a70": {
-        "$type": "color",
-        "$value": {
-          "light": "",
-          "dark": "#ffffffb2"
-        }
       }
     },
     "number": {
@@ -292,13 +292,13 @@
         "$type": "color",
         "$value": "{primitives.color.white}"
       },
-      "subtle": {
-        "$type": "color",
-        "$value": "{primitives.color.white-a10}"
-      },
       "danger": {
         "$type": "color",
         "$value": "{primitives.color.red-a10}"
+      },
+      "subtle": {
+        "$type": "color",
+        "$value": "{primitives.color.white-a10}"
       }
     },
     "text": {
@@ -396,13 +396,13 @@
         "$type": "color",
         "$value": "{semantic.surface.inverse}"
       },
-      "bg-secondary": {
-        "$type": "color",
-        "$value": "{semantic.surface.card}"
-      },
       "text-primary": {
         "$type": "color",
         "$value": "{semantic.text.inverse}"
+      },
+      "bg-secondary": {
+        "$type": "color",
+        "$value": "{semantic.surface.card}"
       },
       "text-secondary": {
         "$type": "color",
@@ -414,14 +414,6 @@
       }
     },
     "control": {
-      "gap-s": {
-        "$type": "dimension",
-        "$value": "{primitives.number.8}"
-      },
-      "gap-m": {
-        "$type": "dimension",
-        "$value": "{primitives.number.16}"
-      },
       "height-desktop": {
         "$type": "dimension",
         "$value": "{semantic.size.control-desktop}"
@@ -429,21 +421,17 @@
       "height-mobile": {
         "$type": "dimension",
         "$value": "{semantic.size.control-mobile}"
+      },
+      "gap-s": {
+        "$type": "dimension",
+        "$value": "{primitives.number.8}"
+      },
+      "gap-m": {
+        "$type": "dimension",
+        "$value": "{primitives.number.16}"
       }
     },
     "toggle": {
-      "padding": {
-        "$type": "dimension",
-        "$value": "{primitives.number.2}"
-      },
-      "thumb": {
-        "$type": "color",
-        "$value": "{primitives.color.white}"
-      },
-      "thumb-size": {
-        "$type": "dimension",
-        "$value": "{primitives.number.16}"
-      },
       "track-width": {
         "$type": "dimension",
         "$value": "{primitives.number.36}"
@@ -452,6 +440,14 @@
         "$type": "dimension",
         "$value": "{primitives.number.20}"
       },
+      "thumb-size": {
+        "$type": "dimension",
+        "$value": "{primitives.number.16}"
+      },
+      "padding": {
+        "$type": "dimension",
+        "$value": "{primitives.number.2}"
+      },
       "track-on": {
         "$type": "color",
         "$value": "{primitives.color.accent-500}"
@@ -459,6 +455,10 @@
       "track-off": {
         "$type": "color",
         "$value": "{primitives.color.white-a70}"
+      },
+      "thumb": {
+        "$type": "color",
+        "$value": "{primitives.color.white}"
       }
     },
     "loader": {

@@ -8,6 +8,9 @@
   /* ── Primitives · Couleurs ─────────────────────────────── */
   --color-white: #ffffff;
   --color-black: #000000;
+  --color-white-a10: #ffffff1a;
+  --color-white-a20: #ffffff33;
+  --color-white-a70: #ffffffb2;
   --color-neutral-100: #f4f4f5;
   --color-neutral-200: #e4e4e7;
   --color-neutral-300: #d4d4d8;
@@ -32,9 +35,6 @@
   --color-red-500: #ef4444;
   --color-red-a10: #ef44441a;
   --color-red-a25: #ef444440;
-  --color-white-a10: #ffffff1a;
-  --color-white-a20: #ffffff33;
-  --color-white-a70: #ffffffb2;
 
   /* ── Primitives · Dimensions (px) ──────────────────────── */
   --number-2: 2px;
@@ -59,8 +59,8 @@
   --surface-card: var(--color-black);
   --surface-card-hover: var(--color-neutral-900);
   --surface-inverse: var(--color-white);
-  --surface-subtle: var(--color-white-a10);
   --surface-danger: var(--color-red-a10);
+  --surface-subtle: var(--color-white-a10);
 
   /* ── Semantic · Texte ──────────────────────────────────── */
   --text-primary: var(--color-neutral-100);
@@ -92,25 +92,25 @@
 
   /* ── Component · Button ────────────────────────────────── */
   --button-bg-primary: var(--surface-inverse);
-  --button-bg-secondary: var(--surface-card);
   --button-text-primary: var(--text-inverse);
+  --button-bg-secondary: var(--surface-card);
   --button-text-secondary: var(--text-primary);
   --button-radius: var(--radius-md);
 
   /* ── Component · Control ───────────────────────────────── */
-  --control-gap-s: var(--number-8);
-  --control-gap-m: var(--number-16);
   --control-height-desktop: var(--size-control-desktop);
   --control-height-mobile: var(--size-control-mobile);
+  --control-gap-s: var(--number-8);
+  --control-gap-m: var(--number-16);
 
   /* ── Component · Toggle ────────────────────────────────── */
-  --toggle-padding: var(--number-2);
-  --toggle-thumb: var(--color-white);
-  --toggle-thumb-size: var(--number-16);
   --toggle-track-width: var(--number-36);
   --toggle-track-height: var(--number-20);
+  --toggle-thumb-size: var(--number-16);
+  --toggle-padding: var(--number-2);
   --toggle-track-on: var(--color-accent-500);
   --toggle-track-off: var(--color-white-a70);
+  --toggle-thumb: var(--color-white);
 
   /* ── Component · Loader ────────────────────────────────── */
   --loader-size: var(--number-20);
