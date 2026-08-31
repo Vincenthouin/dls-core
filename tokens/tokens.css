@@ -113,4 +113,10 @@
   --toggle-track-height: var(--number-20);
   --toggle-track-on: var(--color-accent-500);
   --toggle-track-off: var(--color-white-a70);
+
+  /* ── Component · Loader ──────────────────────────────── */
+  --loader-size: var(--number-20);
+  --loader-thickness: var(--number-2);
+  --loader-track: var(--border-default);
+  --loader-indicator: var(--text-primary);
 }

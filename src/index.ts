@@ -8,6 +8,8 @@ export { Toggle } from "./Toggle";
 export type { ToggleProps } from "./Toggle";
 export { IconButton } from "./IconButton";
 export type { IconButtonProps } from "./IconButton";
+export { Loader } from "./Loader";
+export type { LoaderProps } from "./Loader";
 export {
   CloseIcon,
   CheckIcon,

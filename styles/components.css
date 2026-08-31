@@ -156,3 +156,16 @@
   color: var(--text-primary);
 }
 .dls-icon-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* ── Loader ──────────────────────────────────────────── */
+.dls-loader {
+  width: var(--loader-size);
+  height: var(--loader-size);
+  border: var(--loader-thickness) solid var(--loader-track);
+  border-top-color: var(--loader-indicator);
+  border-radius: var(--radius-full);
+  animation: dls-spin 1s linear infinite;
+}
+@keyframes dls-spin {
+  to { transform: rotate(360deg); }
+}
