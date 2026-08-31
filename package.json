@@ -40,6 +40,7 @@
     "typescript": "^5.6.0"
   },
   "scripts": {
+    "tokens:pull": "node scripts/pull-figma-tokens.mjs",
     "tokens:build": "node scripts/build-tokens.mjs",
     "build": "npm run tokens:build && tsup",
     "prepare": "npm run tokens:build && tsup"

@@ -23,6 +23,7 @@ Il est édité **dans Figma via le Token Plugin** (bidirectionnel, ouvre une PR)
 `tokens.css` et `tokens.json` en sont **GÉNÉRÉS** — ne pas les éditer :
 
 ```bash
+npm run tokens:pull    # Figma → design-tokens.json (voir TOKENS-SYNC.md ; REST Enterprise, ou MCP)
 npm run tokens:build   # design-tokens.json → tokens.css + tokens.json (aussi lancé par prepare/build)
 ```
 

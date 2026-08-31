@@ -16,7 +16,50 @@ Figma (DLS Core)  ──plugin──▶  PR sur dls-core (design-tokens.json)
                           npm update dls-core  ──▶  app Music Share
 ```
 
-## Config à saisir dans les outils
+## Pull Figma → JSON (exporteur `tokens:pull`)
+
+Régénère `design-tokens.json` depuis les Variables Figma DLS Core. Deux transports :
+
+**A. REST (automatable, CI)** — `scripts/pull-figma-tokens.mjs` :
+```bash
+FIGMA_TOKEN=<pat> npm run tokens:pull   # puis npm run tokens:build
+```
+⚠️ L'endpoint `variables/local` est **Figma Enterprise only** → 403 sur un plan
+perso/Éducation. Utiliser alors le transport B.
+
+**B. MCP Figma / console plugin (plan perso)** — même lecture, exécutée *dans* Figma.
+Script (lecture seule) validé, à lancer via le MCP `use_figma` ou la console du plugin ;
+il produit le graphe `layer.cat.leaf → valeur` puis on reconstruit `design-tokens.json` :
+
+```js
+const cols = await figma.variables.getLocalVariableCollectionsAsync();
+const LAYERS = { Primitives:"primitives", Semantic:"semantic", Component:"component" };
+const colById = new Map(cols.map(c => [c.id, c]));
+const all = await figma.variables.getLocalVariablesAsync();
+const byId = new Map(all.map(v => [v.id, v]));
+const catLeaf = v => { const p=v.name.split("/"); return { cat:p[0], leaf:p.slice(1).join("-") }; };
+const layerOf = v => LAYERS[colById.get(v.variableCollectionId)?.name];
+const hex = c => { const h=n=>Math.round(n*255).toString(16).padStart(2,"0");
+  let s="#"+h(c.r)+h(c.g)+h(c.b); if(c.a<1) s+=h(c.a); return s.toLowerCase(); };
+const out = {};
+for (const col of cols){ const layer=LAYERS[col.name]; if(!layer) continue;
+  const m=col.modes[0].modeId;
+  for (const id of col.variableIds){ const v=byId.get(id); if(!v) continue;
+    const {cat,leaf}=catLeaf(v); const val=v.valuesByMode[m]; let x;
+    if (val && val.type==="VARIABLE_ALIAS"){ const a=byId.get(val.id); const t=catLeaf(a);
+      x=`{${layerOf(a)}.${t.cat}.${t.leaf}}`; }
+    else if (v.resolvedType==="COLOR") x={light:"",dark:hex(val)};
+    else x=`${val}px`;
+    (out[`${layer}.${cat}`] ||= {})[leaf]=x; } }
+return JSON.stringify(out);
+```
+_(La version complète, avec résolution d'alias inter-collections et écriture du fichier,
+est dans `scripts/pull-figma-tokens.mjs` — le corps REST et MCP partagent la même logique.)_
+
+**Validé le 2026-08-31** : export Figma == `tokens.css` livré (91/91 tokens, zéro
+divergence) → `design-tokens.json` est fidèle à Figma.
+
+## Config à saisir dans les outils (option future : plugin bidirectionnel)
 
 **Éditeur desktop** (réutilisable tel quel — multi-projets) → ajouter un projet :
 
