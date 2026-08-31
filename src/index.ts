@@ -10,6 +10,10 @@ export { IconButton } from "./IconButton";
 export type { IconButtonProps } from "./IconButton";
 export { Loader } from "./Loader";
 export type { LoaderProps } from "./Loader";
+export { Badge } from "./Badge";
+export type { BadgeProps } from "./Badge";
+export { Chip } from "./Chip";
+export type { ChipProps } from "./Chip";
 export {
   CloseIcon,
   CheckIcon,

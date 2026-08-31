@@ -169,3 +169,44 @@
 @keyframes dls-spin {
   to { transform: rotate(360deg); }
 }
+
+/* ── Badge ───────────────────────────────────────────── */
+.dls-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--number-4) var(--control-gap-s);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  background: var(--color-white-a20);
+  color: var(--text-secondary);
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-size: 10px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* ── Chip ────────────────────────────────────────────── */
+.dls-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--number-4) var(--number-10);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  background: var(--surface-card);
+  color: var(--text-secondary);
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-size: 11px;
+  line-height: 1;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.dls-chip:hover:not(.dls-chip--copied) {
+  border-color: var(--border-selected);
+  color: var(--text-primary);
+}
+.dls-chip--copied {
+  border-color: var(--color-accent-500);
+  color: var(--text-accent);
+  cursor: default;
+}
