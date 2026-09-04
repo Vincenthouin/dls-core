@@ -75,7 +75,7 @@
       <div class="cell"><div class="render btnbox"><button class="dls-btn dls-btn--secondary dls-btn--desktop">Continue</button></div><span class="tag"><b>secondary</b> · desktop · default</span></div>
       <div class="cell"><div class="render btnbox"><button class="dls-btn dls-btn--success dls-btn--desktop">Message copied!</button></div><span class="tag"><b>success</b> · confirmation</span></div>
       <div class="cell"><div class="render btnbox"><button class="dls-btn dls-btn--primary dls-btn--desktop" disabled>Copy all</button></div><span class="tag"><b>disabled</b></span></div>
-      <div class="cell"><div class="render btnbox"><button class="dls-btn dls-btn--primary dls-btn--mobile">Copy all</button></div><span class="tag">primary · <b>mobile</b> (48px)</span></div>
+      <div class="cell"><div class="render btnbox"><button class="dls-btn dls-btn--primary dls-btn--mobile">Copy all</button></div><span class="tag">primary · <b>mobile</b> (56px)</span></div>
       <div class="cell"><div class="render btnbox"><button class="dls-btn dls-btn--primary dls-btn--desktop"><span class="dls-btn__icon" data-icon="share"></span>Share</button></div><span class="tag">primary · <b>show icon</b></span></div>
     </div>
   </section>
@@ -84,7 +84,7 @@
   <section>
     <h2>Input</h2>
     <p class="desc">
-      Variant : <code>Platform</code> (desktop 13px / mobile 16px anti-zoom iOS).
+      Variant : <code>Platform</code> (desktop 44px·13px / mobile 56px·16px anti-zoom iOS).
       <span class="hint">Clique dans un champ pour voir le focus.</span><br />
       Pas d'état « invalid » : une erreur de saisie est signalée par un
       <code>Alert tone="danger"</code> sous le champ (le champ reste neutre).
@@ -92,7 +92,7 @@
     <div class="grid">
       <div class="cell"><div class="render"><input class="dls-input dls-input--desktop" placeholder="Paste your Spotify link" /></div><span class="tag"><b>desktop</b> · placeholder</span></div>
       <div class="cell"><div class="render"><input class="dls-input dls-input--desktop" value="https://open.spotify.com/track/xyz" /></div><span class="tag">desktop · <b>filled</b></span></div>
-      <div class="cell"><div class="render"><input class="dls-input dls-input--mobile" placeholder="Paste your link" /></div><span class="tag"><b>mobile</b> · 16px</span></div>
+      <div class="cell"><div class="render"><input class="dls-input dls-input--mobile" placeholder="Paste your link" /></div><span class="tag"><b>mobile</b> · 56px · 16px</span></div>
       <div class="cell" style="grid-column:1/-1"><div class="render" style="flex-direction:column;align-items:stretch;gap:8px"><input class="dls-input dls-input--desktop" value="jkjkjk" /><div class="dls-alert dls-alert--danger">This is not a valid link.</div></div><span class="tag">pattern d'erreur : <b>Input + Alert</b> (champ non recoloré)</span></div>
     </div>
   </section>
@@ -113,13 +113,13 @@
   <section>
     <h2>Icon button</h2>
     <p class="desc">
-      Sizing standalone : <code>Platform</code> (desktop 44px / mobile 48px, aligné Input/Button).
+      Sizing standalone : <code>Platform</code> (desktop 44px / mobile 56px, aligné Input/Button).
       Sizing compact hérité : <code>Size</code> (s 32px / m 40px). × <code>Shape</code> (square/round)
       × <code>State</code> (default/active). <span class="hint">Survole pour le hover.</span>
     </p>
     <div class="grid">
       <div class="cell"><div class="render"><button class="dls-icon-btn dls-icon-btn--square dls-icon-btn--desktop" data-icon="settings" aria-label="Settings"></button></div><span class="tag"><b>square · desktop</b> · 44px</span></div>
-      <div class="cell"><div class="render"><button class="dls-icon-btn dls-icon-btn--square dls-icon-btn--mobile" data-icon="settings" aria-label="Settings"></button></div><span class="tag">square · <b>mobile</b> · 48px</span></div>
+      <div class="cell"><div class="render"><button class="dls-icon-btn dls-icon-btn--square dls-icon-btn--mobile" data-icon="settings" aria-label="Settings"></button></div><span class="tag">square · <b>mobile</b> · 56px</span></div>
       <div class="cell"><div class="render"><button class="dls-icon-btn dls-icon-btn--square dls-icon-btn--m" data-icon="settings" aria-label="Settings"></button></div><span class="tag"><b>square · m</b> · 40px (legacy)</span></div>
       <div class="cell"><div class="render"><button class="dls-icon-btn dls-icon-btn--square dls-icon-btn--m dls-icon-btn--active" data-icon="close" aria-label="Close"></button></div><span class="tag">square · m · <b>active</b></span></div>
       <div class="cell"><div class="render"><button class="dls-icon-btn dls-icon-btn--square dls-icon-btn--s" data-icon="copy" aria-label="Copy"></button></div><span class="tag"><b>square · s</b></span></div>

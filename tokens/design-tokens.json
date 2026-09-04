@@ -366,7 +366,7 @@
       },
       "control-mobile": {
         "$type": "dimension",
-        "$value": "{primitives.number.48}"
+        "$value": "{primitives.number.56}"
       },
       "icon-s": {
         "$type": "dimension",

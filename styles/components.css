@@ -74,11 +74,15 @@
 
 /* ── Input ───────────────────────────────────────────── */
 .dls-input {
+  /* hauteur = variant Figma `Platform` (desktop 44) ; le texte single-line se
+     centre verticalement, box-sizing inclut padding + bordure. */
+  box-sizing: border-box;
   width: 100%;
+  height: var(--control-height-desktop);
   border: 1px solid var(--border-default);
   border-radius: var(--radius-md);
   background: var(--surface-card);
-  padding: 10px var(--control-gap-m) 10px var(--number-12);
+  padding: 0 var(--control-gap-m) 0 var(--number-12);
   color: var(--text-primary);
   font-family: Inter, system-ui, -apple-system, sans-serif;
   font-size: 13px;
@@ -91,8 +95,8 @@
   border-color: var(--border-selected);
   background: var(--surface-card-hover);
 }
-/* mobile: 16px to avoid the iOS zoom-on-focus */
-.dls-input--mobile { font-size: 16px; }
+/* mobile : 56px + 16px (anti-zoom iOS), aligné sur Button/Icon button. */
+.dls-input--mobile { height: var(--control-height-mobile); font-size: 16px; }
 .dls-input:disabled { opacity: 0.5; cursor: not-allowed; }
 
 /* ── Toggle ──────────────────────────────────────────── */
