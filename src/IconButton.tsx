@@ -7,9 +7,10 @@ export interface IconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonEl
    *  (desktop 44 / mobile 48, aligned on the Input/Button height). Takes
    *  precedence over `size` when set — prefer it for standalone buttons. */
   platform?: "desktop" | "mobile";
-  /** Legacy compact sizing for embedded icons (s 32 / m 40). Used only when
-   *  `platform` is not set. */
-  size?: "s" | "m";
+  /** Compact sizing for embedded icons (xs 24 / s 32 / m 40). Used only when
+   *  `platform` is not set — e.g. a row action (Figma List item `action` = 24
+   *  desktop / 32 mobile). */
+  size?: "xs" | "s" | "m";
   /** Toggled/pressed look (e.g. an open settings panel). Maps to Figma
    *  `State` = Active/Selected. Also reflected as `aria-pressed`. */
   active?: boolean;
