@@ -3,10 +3,15 @@ import React from "react";
 export interface IconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /** Corner shape. Maps to Figma `Shape` variant. */
   shape?: "square" | "round";
-  /** Control size. Maps to Figma `Size` variant. */
+  /** Standalone control sizing. Maps to Figma Icon button `Platform` variant
+   *  (desktop 44 / mobile 48, aligned on the Input/Button height). Takes
+   *  precedence over `size` when set — prefer it for standalone buttons. */
+  platform?: "desktop" | "mobile";
+  /** Legacy compact sizing for embedded icons (s 32 / m 40). Used only when
+   *  `platform` is not set. */
   size?: "s" | "m";
   /** Toggled/pressed look (e.g. an open settings panel). Maps to Figma
-   *  `State` = Active. Also reflected as `aria-pressed`. */
+   *  `State` = Active/Selected. Also reflected as `aria-pressed`. */
   active?: boolean;
 }
 
@@ -17,16 +22,20 @@ export interface IconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonEl
  */
 export function IconButton({
   shape = "square",
-  size = "m",
+  platform,
+  size,
   active = false,
   className,
   children,
   ...rest
 }: IconButtonProps) {
+  // `platform` (44/48, Figma-aligned) wins ; otherwise fall back to the legacy
+  // `size` scale (default m).
+  const sizing = platform ? `dls-icon-btn--${platform}` : `dls-icon-btn--${size ?? "m"}`;
   const classes = [
     "dls-icon-btn",
     `dls-icon-btn--${shape}`,
-    `dls-icon-btn--${size}`,
+    sizing,
     active && "dls-icon-btn--active",
     className,
   ]

@@ -144,7 +144,12 @@
 }
 .dls-icon-btn--m { width: var(--number-40); height: var(--number-40); }
 .dls-icon-btn--s { width: var(--number-32); height: var(--number-32); }
-.dls-icon-btn--square.dls-icon-btn--m { border-radius: var(--radius-md); }
+/* Platform sizing (Figma Icon button `Platform`) : aligné sur Input/Button (44/48). */
+.dls-icon-btn--desktop { width: var(--control-height-desktop); height: var(--control-height-desktop); }
+.dls-icon-btn--mobile { width: var(--control-height-mobile); height: var(--control-height-mobile); }
+.dls-icon-btn--square.dls-icon-btn--m,
+.dls-icon-btn--square.dls-icon-btn--desktop,
+.dls-icon-btn--square.dls-icon-btn--mobile { border-radius: var(--radius-md); }
 .dls-icon-btn--square.dls-icon-btn--s { border-radius: var(--radius-sm); }
 .dls-icon-btn--round { border-radius: var(--radius-full); }
 .dls-icon-btn:hover {

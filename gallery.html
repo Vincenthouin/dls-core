@@ -113,11 +113,14 @@
   <section>
     <h2>Icon button</h2>
     <p class="desc">
-      Variants : <code>Shape</code> (square/round) × <code>Size</code> (s 32px / m 40px) ×
-      <code>State</code> (default/active). <span class="hint">Survole pour le hover.</span>
+      Sizing standalone : <code>Platform</code> (desktop 44px / mobile 48px, aligné Input/Button).
+      Sizing compact hérité : <code>Size</code> (s 32px / m 40px). × <code>Shape</code> (square/round)
+      × <code>State</code> (default/active). <span class="hint">Survole pour le hover.</span>
     </p>
     <div class="grid">
-      <div class="cell"><div class="render"><button class="dls-icon-btn dls-icon-btn--square dls-icon-btn--m" data-icon="settings" aria-label="Settings"></button></div><span class="tag"><b>square · m</b> · default</span></div>
+      <div class="cell"><div class="render"><button class="dls-icon-btn dls-icon-btn--square dls-icon-btn--desktop" data-icon="settings" aria-label="Settings"></button></div><span class="tag"><b>square · desktop</b> · 44px</span></div>
+      <div class="cell"><div class="render"><button class="dls-icon-btn dls-icon-btn--square dls-icon-btn--mobile" data-icon="settings" aria-label="Settings"></button></div><span class="tag">square · <b>mobile</b> · 48px</span></div>
+      <div class="cell"><div class="render"><button class="dls-icon-btn dls-icon-btn--square dls-icon-btn--m" data-icon="settings" aria-label="Settings"></button></div><span class="tag"><b>square · m</b> · 40px (legacy)</span></div>
       <div class="cell"><div class="render"><button class="dls-icon-btn dls-icon-btn--square dls-icon-btn--m dls-icon-btn--active" data-icon="close" aria-label="Close"></button></div><span class="tag">square · m · <b>active</b></span></div>
       <div class="cell"><div class="render"><button class="dls-icon-btn dls-icon-btn--square dls-icon-btn--s" data-icon="copy" aria-label="Copy"></button></div><span class="tag"><b>square · s</b></span></div>
       <div class="cell"><div class="render"><button class="dls-icon-btn dls-icon-btn--round dls-icon-btn--s" data-icon="close" aria-label="Clear"></button></div><span class="tag"><b>round · s</b></span></div>
